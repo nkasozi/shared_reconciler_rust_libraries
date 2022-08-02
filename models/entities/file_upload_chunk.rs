@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use super::recon_tasks_models::{ComparisonPair, ReconciliationConfigs};
 
 //represents a group of lines inside a file
-#[derive(Serialize, PartialEq, Eq, Deserialize, Debug)]
+#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileUploadChunk {
     pub id: String,
     pub upload_request_id: String,
@@ -17,7 +17,7 @@ pub struct FileUploadChunk {
 }
 
 //represents a line in a file
-#[derive(Serialize, PartialEq, Eq, Deserialize, Debug)]
+#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileUploadChunkRow {
     pub raw_data: String,
     pub parsed_columns_from_row: Vec<String>,
