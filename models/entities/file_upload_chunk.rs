@@ -13,12 +13,34 @@ pub struct FileUploadChunk {
     pub date_created: i64,
     pub date_modified: i64,
     pub comparison_pairs: Vec<ComparisonPair>,
+    pub column_headers: Vec<String>,
     pub recon_config: ReconciliationConfigs,
+}
+
+impl FileUploadChunk {
+    pub fn get_row_identifier_comparison_pairs(&self) -> Vec<ComparisonPair> {
+        return self
+            .comparison_pairs
+            .clone()
+            .into_iter()
+            .filter(|pair| pair.is_row_identifier)
+            .collect();
+    }
+
+    pub fn get_comparison_pairs_that_are_not_row_identifiers(&self) -> Vec<ComparisonPair> {
+        return self
+            .comparison_pairs
+            .clone()
+            .into_iter()
+            .filter(|pair| !pair.is_row_identifier)
+            .collect();
+    }
 }
 
 //represents a line in a file
 #[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileUploadChunkRow {
+    pub row_number: usize,
     pub raw_data: String,
     pub parsed_columns_from_row: Vec<String>,
     pub recon_result: ReconStatus,
