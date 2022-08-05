@@ -18,6 +18,7 @@ pub struct FileUploadChunk {
 }
 
 impl FileUploadChunk {
+    #[allow(dead_code)]
     pub fn get_row_identifier_comparison_pairs(&self) -> Vec<ComparisonPair> {
         return self
             .comparison_pairs
@@ -27,6 +28,7 @@ impl FileUploadChunk {
             .collect();
     }
 
+    #[allow(dead_code)]
     pub fn get_comparison_pairs_that_are_not_row_identifiers(&self) -> Vec<ComparisonPair> {
         return self
             .comparison_pairs
@@ -40,7 +42,7 @@ impl FileUploadChunk {
 //represents a line in a file
 #[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileUploadChunkRow {
-    pub row_number: usize,
+    pub row_number: u64,
     pub raw_data: String,
     pub parsed_columns_from_row: Vec<String>,
     pub recon_result: ReconStatus,
