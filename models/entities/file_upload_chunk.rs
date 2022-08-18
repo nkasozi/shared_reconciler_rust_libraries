@@ -1,6 +1,9 @@
 use serde::{Deserialize, Serialize};
 
-use super::recon_tasks_models::{ComparisonPair, ReconciliationConfigs};
+use super::{
+    file_chunk_queue::FileChunkQueue,
+    recon_tasks_models::{ComparisonPair, ReconciliationConfigs},
+};
 
 //represents a group of lines inside a file
 #[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
@@ -15,6 +18,9 @@ pub struct FileUploadChunk {
     pub comparison_pairs: Vec<ComparisonPair>,
     pub column_headers: Vec<String>,
     pub recon_config: ReconciliationConfigs,
+    pub primary_file_queue: FileChunkQueue,
+    pub comparison_file_queue: FileChunkQueue,
+    pub results_queue: FileChunkQueue,
 }
 
 impl FileUploadChunk {
