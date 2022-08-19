@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use super::file_chunk_queue::FileChunkQueue;
+
 #[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ReconTaskDetails {
     pub id: String,
@@ -20,6 +22,7 @@ pub struct ReconFileMetaData {
     pub recon_file_type: ReconFileType,
     pub column_headers: Vec<String>,
     pub file_hash: String,
+    pub queue_info: FileChunkQueue,
 }
 
 #[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]

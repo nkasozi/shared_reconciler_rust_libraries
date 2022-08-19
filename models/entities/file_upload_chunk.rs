@@ -18,9 +18,9 @@ pub struct FileUploadChunk {
     pub comparison_pairs: Vec<ComparisonPair>,
     pub column_headers: Vec<String>,
     pub recon_config: ReconciliationConfigs,
-    pub primary_file_queue: FileChunkQueue,
-    pub comparison_file_queue: FileChunkQueue,
-    pub results_queue: FileChunkQueue,
+    pub source_file_chunks_queue: FileChunkQueue,
+    pub comparison_file_chunks_queue: FileChunkQueue,
+    pub result_chunks_queue: FileChunkQueue,
 }
 
 impl FileUploadChunk {
