@@ -9,7 +9,7 @@ use crate::internal::shared_reconciler_rust_libraries::models::entities::{
 pub struct ReconTaskResponseDetails {
     pub task_id: String,
     pub task_details: ReconTaskDetails,
-    pub source_file_metadata: ReconFileMetaData,
+    pub primary_file_metadata: ReconFileMetaData,
     pub comparison_file_metadata: ReconFileMetaData,
     pub results_queue_info: FileChunkQueue,
 }
