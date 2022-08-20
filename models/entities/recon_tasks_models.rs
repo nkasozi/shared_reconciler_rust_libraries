@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use super::file_chunk_queue::FileChunkQueue;
 
-#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ReconTaskDetails {
     pub id: String,
     pub source_file_id: String,
@@ -13,7 +13,7 @@ pub struct ReconTaskDetails {
     pub recon_config: ReconciliationConfigs,
 }
 
-#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ReconFileMetaData {
     pub id: String,
     pub file_name: String,
@@ -25,14 +25,14 @@ pub struct ReconFileMetaData {
     pub queue_info: FileChunkQueue,
 }
 
-#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ComparisonPair {
     pub source_column_index: usize,
     pub comparison_column_index: usize,
     pub is_row_identifier: bool,
 }
 
-#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ReconciliationConfigs {
     pub should_check_for_duplicate_records_in_comparison_file: bool,
     pub should_reconciliation_be_case_sensitive: bool,
@@ -44,4 +44,10 @@ pub struct ReconciliationConfigs {
 pub enum ReconFileType {
     SourceReconFile,
     ComparisonReconFile,
+}
+
+impl Default for ReconFileType {
+    fn default() -> Self {
+        ReconFileType::SourceReconFile
+    }
 }

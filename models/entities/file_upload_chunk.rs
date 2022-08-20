@@ -6,7 +6,7 @@ use super::{
 };
 
 //represents a group of lines inside a file
-#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileUploadChunk {
     pub id: String,
     pub upload_request_id: String,
@@ -18,7 +18,7 @@ pub struct FileUploadChunk {
     pub comparison_pairs: Vec<ComparisonPair>,
     pub column_headers: Vec<String>,
     pub recon_config: ReconciliationConfigs,
-    pub source_file_chunks_queue: FileChunkQueue,
+    pub primary_file_chunks_queue: FileChunkQueue,
     pub comparison_file_chunks_queue: FileChunkQueue,
     pub result_chunks_queue: FileChunkQueue,
 }
@@ -46,7 +46,7 @@ impl FileUploadChunk {
 }
 
 //represents a line in a file
-#[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileUploadChunkRow {
     pub row_number: u64,
     pub raw_data: String,
@@ -63,9 +63,21 @@ pub enum ReconStatus {
     Pending,
 }
 
+impl Default for ReconStatus {
+    fn default() -> Self {
+        ReconStatus::Pending
+    }
+}
+
 //represents the source of a file chunk
 #[derive(Serialize, Deserialize, PartialEq, Eq, Debug, Clone, Copy)]
 pub enum FileUploadChunkSource {
     ComparisonFileChunk,
     PrimaryFileChunk,
+}
+
+impl Default for FileUploadChunkSource {
+    fn default() -> Self {
+        FileUploadChunkSource::PrimaryFileChunk
+    }
 }
