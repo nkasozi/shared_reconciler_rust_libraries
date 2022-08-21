@@ -11,6 +11,7 @@ pub struct ReconTaskDetails {
     pub has_begun: bool,
     pub comparison_pairs: Vec<ComparisonPair>,
     pub recon_config: ReconciliationConfigs,
+    pub recon_results_queue_info: FileChunkQueue,
 }
 
 #[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
