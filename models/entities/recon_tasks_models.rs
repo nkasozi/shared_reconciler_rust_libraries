@@ -28,8 +28,8 @@ pub struct ReconFileMetaData {
 
 #[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ComparisonPair {
-    pub source_column_index: usize,
-    pub comparison_column_index: usize,
+    pub primary_file_column_index: usize,
+    pub comparison_file_column_index: usize,
     pub is_row_identifier: bool,
 }
 
@@ -43,12 +43,12 @@ pub struct ReconciliationConfigs {
 
 #[derive(Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub enum ReconFileType {
-    SourceReconFile,
-    ComparisonReconFile,
+    PrimaryFile,
+    ComparisonFile,
 }
 
 impl Default for ReconFileType {
     fn default() -> Self {
-        ReconFileType::SourceReconFile
+        ReconFileType::PrimaryFile
     }
 }
