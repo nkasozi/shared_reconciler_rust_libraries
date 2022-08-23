@@ -21,6 +21,7 @@ pub struct FileUploadChunk {
     pub primary_file_chunks_queue: FileChunkQueue,
     pub comparison_file_chunks_queue: FileChunkQueue,
     pub result_chunks_queue: FileChunkQueue,
+    pub is_last_chunk: bool,
 }
 
 impl FileUploadChunk {
