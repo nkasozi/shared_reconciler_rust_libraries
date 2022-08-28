@@ -13,6 +13,7 @@ pub struct File {
     pub file_type: ReconFileType,
 }
 
+#[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct FileThatHasBeenRead {
     pub id: String,
     pub upload_request_id: String,

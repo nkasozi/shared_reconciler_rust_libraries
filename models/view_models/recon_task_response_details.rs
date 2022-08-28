@@ -11,3 +11,9 @@ pub struct ReconTaskResponseDetails {
     pub primary_file_metadata: ReconFileMetaData,
     pub comparison_file_metadata: ReconFileMetaData,
 }
+
+#[derive(PartialEq, Serialize, Clone, Deserialize, Debug)]
+pub struct FileResponseSummary {
+    pub file_id: String,
+    pub task_id: String,
+}
