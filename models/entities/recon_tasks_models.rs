@@ -5,8 +5,8 @@ use super::file_chunk_queue::FileChunkQueue;
 #[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
 pub struct ReconTaskDetails {
     pub id: String,
-    pub primary_file_id: String,
-    pub comparison_file_id: String,
+    pub primary_file_id: Option<String>,
+    pub comparison_file_id: Option<String>,
     pub is_done: bool,
     pub has_begun: bool,
     pub comparison_pairs: Vec<ComparisonPair>,

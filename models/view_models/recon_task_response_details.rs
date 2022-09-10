@@ -8,8 +8,8 @@ use crate::internal::shared_reconciler_rust_libraries::models::entities::recon_t
 pub struct ReconTaskResponseDetails {
     pub task_id: String,
     pub task_details: ReconTaskDetails,
-    pub primary_file_metadata: ReconFileMetaData,
-    pub comparison_file_metadata: ReconFileMetaData,
+    pub primary_file_metadata: Option<ReconFileMetaData>,
+    pub comparison_file_metadata: Option<ReconFileMetaData>,
 }
 
 #[derive(PartialEq, Serialize, Clone, Deserialize, Debug)]
