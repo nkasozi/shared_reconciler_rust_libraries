@@ -11,7 +11,7 @@ impl From<AppError> for Error {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Clone, PartialEq, Serialize, Deserialize, Debug)]
 pub enum AppErrorKind {
     NotFound,
     InternalError,
@@ -36,7 +36,7 @@ impl AppErrorKind {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Clone, PartialEq, Serialize, Deserialize, Debug)]
 pub struct AppError {
     pub kind: AppErrorKind,
     pub message: String,
