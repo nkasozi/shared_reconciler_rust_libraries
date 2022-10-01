@@ -12,6 +12,8 @@ pub struct ReconTaskDetails {
     pub comparison_pairs: Vec<ComparisonPair>,
     pub recon_config: ReconciliationConfigs,
     pub recon_results_queue_info: FileChunkQueue,
+    pub primary_file_chunks_queue_info: FileChunkQueue,
+    pub comparison_file_chunks_queue_info: FileChunkQueue,
 }
 
 #[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
@@ -23,7 +25,6 @@ pub struct ReconFileMetaData {
     pub recon_file_type: ReconFileType,
     pub column_headers: Vec<String>,
     pub file_hash: String,
-    pub queue_info: FileChunkQueue,
 }
 
 #[derive(Default, Serialize, PartialEq, Clone, Eq, Deserialize, Debug)]
