@@ -17,15 +17,15 @@ pub fn ok_or_error<T: Serialize>(response: Result<T, AppError>) -> HttpResponse 
 
 #[allow(dead_code)]
 pub fn internal_server_error(error: AppError) -> HttpResponse {
-    return HttpResponse::InternalServerError().json(format!("{}", error));
+    return HttpResponse::InternalServerError().json(error);
 }
 
 #[allow(dead_code)]
 pub fn bad_client_request(error: AppError) -> HttpResponse {
-    return HttpResponse::BadRequest().json(format!("{}", error));
+    return HttpResponse::BadRequest().json(error);
 }
 
 #[allow(dead_code)]
 pub fn not_found_error(error: AppError) -> HttpResponse {
-    return HttpResponse::NotFound().json(format!("{}", error));
+    return HttpResponse::NotFound().json(error);
 }
