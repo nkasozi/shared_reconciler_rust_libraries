@@ -1,8 +1,8 @@
 use dapr::{Client, dapr::dapr::proto::runtime::v1::dapr_client::DaprClient};
 use tonic::transport::Channel as TonicChannel;
-
 use crate::internal::shared_reconciler_rust_libraries::models::entities::app_errors::{AppError, AppErrorKind};
 
+#[allow(dead_code)]
 pub async fn connect_to_dapr(connection_url: &String) -> Result<Client<DaprClient<TonicChannel>>, AppError> {
     // Create the client
     let dapr_grpc_server_address = connection_url.clone();
